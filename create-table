@@ -1,0 +1,38 @@
+DROP TABLE IF EXISTS songs;
+DROP TABLE IF EXISTS artists;
+
+CREATE TABLE artists (
+    id          VARCHAR(50) PRIMARY KEY,
+    name        TEXT,
+    followers   BIGINT,
+    popularity  SMALLINT CHECK (popularity BETWEEN 0 AND 100),
+    genres      TEXT,
+    main_genre  VARCHAR(50)
+);
+
+CREATE TABLE songs (
+    id                      VARCHAR(50) PRIMARY KEY,
+    name                    TEXT,
+    album_name              TEXT,
+    artists                 TEXT,
+    danceability            NUMERIC(5,3),
+    energy                  NUMERIC(5,3),
+    key                     SMALLINT,
+    loudness                NUMERIC(7,3),
+    mode                    SMALLINT,
+    speechiness             NUMERIC(6,4),
+    acousticness            NUMERIC(7,5),
+    instrumentalness        NUMERIC(5,3),
+    liveness                NUMERIC(5,3),
+    valence                 NUMERIC(5,3),
+    tempo                   NUMERIC(7,3),
+    duration_ms             INTEGER,
+    lyrics                  TEXT,
+    year                    SMALLINT,
+    genre                   VARCHAR(50),
+    popularity              SMALLINT CHECK (popularity BETWEEN 0 AND 100),
+    total_artist_followers  BIGINT,
+    avg_artist_popularity   NUMERIC(5,2),
+    artist_ids              TEXT,
+    niche_genres            TEXT
+);
